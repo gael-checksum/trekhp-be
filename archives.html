@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archives — Trek HP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/archives.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none">
+          <img src="assets/img/logo-trekhp.jpg" alt="Trek HP" class="logo-img">
+          <span class="logo-year">2027</span>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#carte">Carte</a>
+        <a href="index.html#mailing">Mailing list</a>
+        <a href="inscription.html" class="btn-nav">S'inscrire</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Archives du Trek HP</h1>
+      <p>Toutes les éditions depuis la première en 1958</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Filtres -->
+      <div class="archives-filters">
+        <button class="filter-btn active" onclick="filtrer('toutes')">Toutes</button>
+        <button class="filter-btn" onclick="filtrer('2020')">2020–2029</button>
+        <button class="filter-btn" onclick="filtrer('2010')">2010–2019</button>
+        <button class="filter-btn" onclick="filtrer('2000')">2000–2009</button>
+        <button class="filter-btn" onclick="filtrer('avant')">Avant 2000</button>
+      </div>
+
+      <!-- Grille des éditions -->
+      <div class="editions-grid" id="editions-grid">
+
+        <!-- EDITION 2024 -->
+        <article class="edition-card" data-decade="2020">
+          <div class="edition-year">2024</div>
+          <div class="edition-body">
+            <h3 class="edition-title">Trek HP 2024</h3>
+            <div class="edition-meta">
+              <span class="edition-tag">Wallonie</span>
+            </div>
+            <p class="edition-desc">
+              Édition 2024 du Trek HP organisée par le Groupe Honneur.
+              <!-- Compléter avec les infos réelles -->
+            </p>
+            <div class="edition-stats">
+              <span><strong>—</strong> équipes</span>
+              <span><strong>—</strong> participants</span>
+              <span><strong>—</strong> km</span>
+            </div>
+            <a href="https://sites.google.com/view/trekhp2024/trek-hp" target="_blank" rel="noopener" class="edition-link">
+              Voir le site 2024 →
+            </a>
+          </div>
+        </article>
+
+        <!-- EDITION 1958 — première -->
+        <article class="edition-card edition-card--historic" data-decade="avant">
+          <div class="edition-year">1958</div>
+          <div class="edition-body">
+            <h3 class="edition-title">Week-end Survie — 1ère édition</h3>
+            <div class="edition-meta">
+              <span class="edition-tag edition-tag--or">Fondatrice</span>
+            </div>
+            <p class="edition-desc">
+              29 et 30 novembre 1958. Imaginé par Hendrick Peltenburg et Didier Beaurain.
+              Environ 10 équipes, 15 km, transport en camion militaire bâché.
+              Kit de survie minimal : lard cru, allumettes, permanganate.
+              L'événement prendra plus tard le nom de Trek HP en hommage à Hendrick Peltenburg.
+            </p>
+            <div class="edition-stats">
+              <span><strong>~10</strong> équipes</span>
+              <span><strong>15</strong> km</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="archives-note">
+        Les archives complètes sont en cours de numérisation.
+        Si vous possédez des photos ou documents d'éditions passées,
+        contactez-nous à <a href="mailto:trekhp2027@gmail.com">trekhp2027@gmail.com</a>.
+      </p>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/img/logo-trekhp.jpg" alt="Trek HP" class="footer-logo-img">
+      </div>
+      <p class="footer-org">
+        Trek HP · <strong>Groupe Honneur</strong><br>
+        <span>Région Bruxelles Sud — Fédération des Scouts et Guides Pluralistes de Belgique (SGP)</span>
+      </p>
+      <p>Contact : <a href="mailto:trekhp2027@gmail.com">trekhp2027@gmail.com</a></p>
+      <nav class="footer-nav">
+        <a href="inscription.html">Inscription équipe</a>
+        <a href="archives.html">Archives</a>
+      </nav>
+      <p class="footer-copy">&copy; Groupe Honneur — SGP — Bruxelles Sud</p>
+    </div>
+  </footer>
+
+  <script>
+    function filtrer(decade) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      event.target.classList.add("active");
+
+      document.querySelectorAll(".edition-card").forEach(card => {
+        if (decade === "toutes") {
+          card.style.display = "";
+        } else {
+          card.style.display = card.dataset.decade === decade ? "" : "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

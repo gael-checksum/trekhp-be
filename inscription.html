@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription équipe — Trek HP 2027</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html" style="text-decoration:none">
+          <span class="logo-trek">TREK</span><span class="logo-hp">HP</span>
+          <span class="logo-year">2027</span>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#carte">La carte</a>
+        <a href="index.html#mailing">Mailing list</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Inscription équipe</h1>
+      <p>Trek HP 2027 · Maximum 180 participants · Équipes de 4 à 6 membres</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Info priorité -->
+      <div class="alert-info">
+        <strong>Système de priorité :</strong> les équipes sont classées selon leur score.
+        Groupe Honneur actif (inscrit scouts) = <strong>+3 pts</strong> par membre ·
+        5 participations ou + = <strong>+2 pts</strong> ·
+        1 à 3 participations = <strong>+1 pt</strong> ·
+        Nouveau = <strong>0 pt</strong>.
+        En cas d'égalité, priorité à l'ordre d'inscription.
+      </div>
+
+      <form class="inscription-form" id="form-inscription" onsubmit="submitInscription(event)" novalidate>
+
+        <!-- Équipe -->
+        <div class="form-section">
+          <h3>Votre équipe</h3>
+          <div class="field-row">
+            <div>
+              <label for="eq-nom">Nom de l'équipe *</label>
+              <input type="text" id="eq-nom" placeholder="Ex : Les Sangliers" required>
+            </div>
+            <div>
+              <label for="eq-nb">Nombre de membres *</label>
+              <select id="eq-nb" onchange="ajusterMembres()" required>
+                <option value="">-- choisir --</option>
+                <option value="4">4 membres</option>
+                <option value="5">5 membres</option>
+                <option value="6">6 membres</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Membres (générés dynamiquement) -->
+        <div id="membres-container"></div>
+
+        <!-- Score en temps réel -->
+        <div class="score-box" id="score-box" style="display:none">
+          <div>
+            <div class="score-label">Score de priorité de votre équipe</div>
+            <div style="font-family:sans-serif;font-size:0.8rem;opacity:0.6;margin-top:0.2rem">
+              Calculé sur la déclaration de vos membres
+            </div>
+          </div>
+          <div class="score-val" id="score-val">0</div>
+        </div>
+
+        <!-- Préférences -->
+        <div class="form-section" id="section-prefs" style="display:none">
+          <h3>Préférences</h3>
+          <div class="field-row">
+            <div>
+              <label for="pref-diff">Niveau de difficulté souhaité</label>
+              <select id="pref-diff">
+                <option value="indifferent">Indifférent</option>
+                <option value="modere">Modéré</option>
+                <option value="sportif">Sportif</option>
+                <option value="challenge">Challenge maximal</option>
+              </select>
+            </div>
+            <div>
+              <label for="pref-region">Préférence de région</label>
+              <select id="pref-region">
+                <option value="indifferent">Peu importe</option>
+                <option value="foret">Forêt</option>
+                <option value="champ">Champ &amp; prairie</option>
+                <option value="escarpe">Escarpé</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row full">
+            <div>
+              <label for="pref-remarques">Remarques ou informations particulières</label>
+              <input type="text" id="pref-remarques" placeholder="Accessibilité, régime alimentaire, contraintes…">
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsable d'équipe -->
+        <div class="form-section" id="section-responsable" style="display:none">
+          <h3>Responsable d'équipe (contact principal)</h3>
+          <div class="field-row">
+            <div>
+              <label for="resp-prenom">Prénom *</label>
+              <input type="text" id="resp-prenom" required>
+            </div>
+            <div>
+              <label for="resp-nom">Nom *</label>
+              <input type="text" id="resp-nom" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div>
+              <label for="resp-email">E-mail *</label>
+              <input type="email" id="resp-email" required>
+            </div>
+            <div>
+              <label for="resp-tel">Téléphone</label>
+              <input type="tel" id="resp-tel" placeholder="+32 …">
+            </div>
+          </div>
+
+          <div style="margin-top:1rem">
+            <label style="display:flex;align-items:flex-start;gap:0.5rem;font-family:sans-serif;font-size:0.88rem;cursor:pointer">
+              <input type="checkbox" id="accept-rgpd" required style="margin-top:3px">
+              <span>
+                Je déclare que les informations fournies sont exactes et j'accepte que ces données
+                soient utilisées uniquement dans le cadre de l'organisation du Trek HP 2027.
+                Les données seront supprimées après l'événement.
+              </span>
+            </label>
+          </div>
+
+          <div style="margin-top:1.5rem;text-align:center">
+            <button type="submit" class="btn btn-primary" id="btn-submit">
+              Envoyer l'inscription
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Message de confirmation -->
+      <div id="inscription-success" class="success-msg" style="display:none;max-width:640px;margin:0 auto">
+        <strong>Inscription reçue !</strong><br>
+        Un e-mail de confirmation vous sera envoyé à l'adresse indiquée.
+        Votre dossier sera examiné et vous recevrez une confirmation de votre place
+        (ou de votre position sur liste d'attente) dans les jours suivants.
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/img/logo-trekhp.jpg" alt="Trek HP" class="footer-logo-img">
+      </div>
+      <p class="footer-org">
+        Trek HP · <strong>Groupe Honneur</strong><br>
+        <span>Région Bruxelles Sud — Fédération des Scouts et Guides Pluralistes de Belgique (SGP)</span>
+      </p>
+      <p>Contact : <a href="mailto:trekhp2027@gmail.com">trekhp2027@gmail.com</a></p>
+      <p class="footer-copy">&copy; Groupe Honneur — SGP — Bruxelles Sud</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/inscription.js"></script>
+</body>
+</html>

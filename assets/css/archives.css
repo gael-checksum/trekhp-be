@@ -1,0 +1,136 @@
+/* ============================================================
+   TREK HP — Archives
+   ============================================================ */
+
+.archives-filters {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.4rem 1rem;
+  border: 2px solid var(--brun);
+  background: transparent;
+  color: var(--brun);
+  border-radius: 20px;
+  font-family: sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--brun);
+  color: var(--blanc);
+}
+
+.editions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.edition-card {
+  border: 1px solid #ddd;
+  border-radius: var(--rayon);
+  overflow: hidden;
+  box-shadow: var(--ombre);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s;
+}
+.edition-card:hover { transform: translateY(-3px); }
+
+.edition-card--historic {
+  border-color: var(--brun-clair);
+}
+
+.edition-year {
+  background: var(--gris-fonce);
+  color: var(--brun-clair);
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 1.5rem 0.8rem;
+  line-height: 1;
+}
+.edition-card--historic .edition-year {
+  background: var(--brun);
+}
+
+.edition-body {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.edition-title {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: var(--vert);
+}
+
+.edition-meta {
+  margin-bottom: 0.8rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.edition-tag {
+  background: var(--creme);
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.15rem 0.7rem;
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  color: var(--gris);
+}
+.edition-tag--or {
+  background: #fff8e1;
+  border-color: #ffd54f;
+  color: #7a5c00;
+}
+
+.edition-desc {
+  font-size: 0.9rem;
+  color: var(--gris);
+  flex: 1;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.edition-stats {
+  display: flex;
+  gap: 1.2rem;
+  font-family: sans-serif;
+  font-size: 0.82rem;
+  color: var(--gris);
+  border-top: 1px solid #eee;
+  padding-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.edition-stats strong { color: var(--gris-fonce); font-size: 1rem; }
+
+.edition-link {
+  color: var(--vert);
+  font-family: sans-serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.edition-link:hover { color: var(--vert-clair); }
+
+.archives-note {
+  background: var(--creme);
+  border-left: 4px solid var(--brun-clair);
+  padding: 1rem 1.5rem;
+  border-radius: 0 var(--rayon) var(--rayon) 0;
+  font-family: sans-serif;
+  font-size: 0.88rem;
+  color: var(--gris);
+  max-width: 700px;
+}
