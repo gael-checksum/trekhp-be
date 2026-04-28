@@ -201,6 +201,36 @@ nav a:hover { color: var(--blanc); }
 .stat--text span { font-size: 1.6rem; }
 .stat--text label { font-size: 0.78rem; line-height: 1.4; opacity: 0.85; }
 
+/* --- HISTOIRE --- */
+.section-histoire { background: var(--gris-fonce); color: var(--creme); }
+.section-histoire h2 { color: var(--brun-clair); }
+
+.histoire-body {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+.histoire-body p { margin-bottom: 1.2rem; }
+.histoire-body sup a {
+  color: var(--brun-clair);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-family: sans-serif;
+}
+
+.histoire-notes {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  font-size: 0.82rem;
+  font-family: sans-serif;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.6;
+}
+.histoire-notes p { margin-bottom: 0.5rem; }
+.histoire-notes sup { color: var(--brun-clair); }
+
 /* --- CARTE --- */
 #map {
   width: 100%;
