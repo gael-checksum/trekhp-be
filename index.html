@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trek HP 2027</title>
+  <meta name="description" content="Le Trek HP revient en 2027 ! Inscrivez-vous à la liste d'information.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <img src="assets/img/logo-trekhp.jpg" alt="Trek HP" class="logo-img">
+        <span class="logo-year">2027</span>
+      </div>
+      <nav>
+        <a href="#annonce">L'événement</a>
+        <a href="#carte">La carte</a>
+        <a href="#mailing">Restez informés</a>
+        <a href="inscription.html" class="btn-nav">S'inscrire</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-logo-wrap">
+        <img src="assets/img/logo-trekhp.jpg" alt="Trek HP" class="hero-logo">
+      </div>
+      <p class="hero-surtitle">Édition 2027</p>
+      <h1>Le Trek HP<br>est de retour</h1>
+      <p class="hero-subtitle">
+        Depuis 1958, des équipes se mesurent aux éléments, mais surtout se forgent
+        des souvenirs impérissables. La prochaine édition aura lieu en <strong>2027</strong>.
+      </p>
+      <div class="hero-ctas">
+        <a href="#mailing" class="btn btn-primary">Recevoir les infos</a>
+        <a href="inscription.html" class="btn btn-secondary">Inscrire mon équipe</a>
+      </div>
+    </div>
+    <div class="hero-counter" id="countdown">
+      <div class="count-block"><span id="cnt-days">—</span><label>jours</label></div>
+      <div class="count-block"><span id="cnt-hours">—</span><label>heures</label></div>
+      <div class="count-block"><span id="cnt-min">—</span><label>minutes</label></div>
+    </div>
+  </section>
+
+  <!-- ANNONCE -->
+  <section class="section" id="annonce">
+    <div class="container two-col">
+      <div>
+        <h2>Une tradition depuis 1958</h2>
+        <p>
+          Le Trek HP est né d'un week-end survie imaginé par Hendrick Peltenburg et Didier Beaurain.
+          En hommage à son fondateur, l'événement porte aujourd'hui son nom et rassemble
+          chaque édition jusqu'à <strong>180 participants</strong> en équipes de 4 à 6 personnes.
+        </p>
+        <p>
+          Les équipes traversent les terres de Wallonie avec un minimum de matériel,
+          en autonomie, dans l'esprit d'un défi collectif et convivial.
+        </p>
+        <h3>Priorité aux fidèles</h3>
+        <p>
+          Les places sont limitées. Les équipes comptant le plus d'anciens participants
+          et de membres du Groupe Honneur sont prioritaires lors des inscriptions.
+        </p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><span>1958</span><label>Première édition</label></div>
+        <div class="stat stat--text"><span>❄</span><label>La nuit la plus froide de l'année</label></div>
+        <div class="stat stat--text"><span>🔔</span><label>Des milliers de cloches aux pieds</label></div>
+        <div class="stat"><span>60+</span><label>Éditions au compteur</label></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="section section-dark" id="carte">
+    <div class="container">
+      <h2>Les territoires du Trek HP</h2>
+      <p class="section-intro">
+        Chaque édition explore une région différente de Wallonie. Les zones déjà parcourues
+        sont indiquées sur la carte — la région 2027 sera annoncée lors de l'ouverture des inscriptions.
+      </p>
+      <div id="map"></div>
+      <p class="map-legend">
+        <span class="dot dot-done"></span> Lieux d'arrivée historiques
+      </p>
+    </div>
+  </section>
+
+  <!-- MAILING LIST -->
+  <section class="section" id="mailing">
+    <div class="container narrow">
+      <h2>Restez informés</h2>
+      <p>
+        Inscrivez-vous à la liste d'information pour recevoir les annonces,
+        l'ouverture des inscriptions et toutes les actualités du Trek HP 2027.
+      </p>
+      <!-- Brevo (Sendinblue) embed form — remplacer l'action par votre URL Brevo -->
+      <form class="mailing-form" id="mailing-form" onsubmit="submitMailingList(event)">
+        <div class="form-row">
+          <input type="text" id="ml-prenom" placeholder="Prénom" required>
+          <input type="text" id="ml-nom" placeholder="Nom" required>
+        </div>
+        <div class="form-row">
+          <input type="email" id="ml-email" placeholder="Votre adresse e-mail" required>
+          <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </div>
+        <p class="form-note">
+          Vos données ne seront utilisées que dans le cadre du Trek HP.
+          Désinscription possible à tout moment.
+        </p>
+      </form>
+      <div id="mailing-success" class="success-msg" style="display:none">
+        Merci ! Vous recevrez bientôt les informations sur le Trek HP 2027.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/img/logo-trekhp.jpg" alt="Trek HP" class="footer-logo-img">
+      </div>
+      <p class="footer-org">
+        Trek HP · <strong>Groupe Honneur</strong><br>
+        <span>Région Bruxelles Sud — Fédération des Scouts et Guides Pluralistes de Belgique (SGP)</span>
+      </p>
+      <p>Contact : <a href="mailto:trekhp2027@gmail.com">trekhp2027@gmail.com</a></p>
+      <nav class="footer-nav">
+        <a href="inscription.html">Inscription équipe</a>
+        <a href="archives.html">Archives</a>
+      </nav>
+      <p class="footer-copy">&copy; Groupe Honneur — SGP — Bruxelles Sud</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/countdown.js"></script>
+  <script src="assets/js/mailing.js"></script>
+</body>
+</html>

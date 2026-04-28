@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:sites.google.com)",
+      "WebFetch(domain:trekhp.fun)",
+      "Bash(echo \"iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAaVBMVEX///8AAAD8/PyFhYW0tLQrKyvz8/MEBAT4+PhQUFDr6+tHR0dMTExWVlbv7+/o6OgwMDDPz885OTnDw8OdnZ2srKw+Pj7W1tZbW1sREREjIyPg4OCPj49qamq6urrJyckZGRl7e3tycnLYJPGtAAAMDklEQVR4nO1cCXeyrBYFVDQaxQGc5///I985OCRpTdqv976VS5e7U2IU2ZyRA5aQEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJEydOnDhx4sSJE\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(python3 *)",
+      "Bash(curl -L -o \"D:/claude/www.trekhp.be/assets/img/logo-trekhp.jpg\" \"https://photos.honneur.be/_data/i/upload/2020/04/13/20200413134213-6b75cb75-me.jpg\")"
+    ]
+  }
+}
