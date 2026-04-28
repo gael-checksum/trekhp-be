@@ -18,9 +18,18 @@ const EMAIL_ORGANISATEUR = "trekhp2027@gmail.com";
 
 // ----------------------------------------------------------------
 
+function doGet(e) {
+  return ContentService
+    .createTextOutput("Trek HP Apps Script OK")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
+    const raw = (e.parameter && e.parameter.data)
+      ? e.parameter.data
+      : e.postData.contents;
+    const data = JSON.parse(raw);
 
     if (data.type === "inscription") {
       traiterInscription(data);

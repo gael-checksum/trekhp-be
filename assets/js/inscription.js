@@ -172,8 +172,8 @@ function submitInscription(e) {
   fetch(TREK_CONFIG.apps_script_inscription, {
     method: "POST",
     mode:   "no-cors",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body:   JSON.stringify(data)
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body:   "data=" + encodeURIComponent(JSON.stringify(data))
   })
   .then(() => {
     document.getElementById("form-inscription").style.display = "none";
