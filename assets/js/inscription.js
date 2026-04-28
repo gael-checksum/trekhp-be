@@ -25,7 +25,7 @@ function ajusterMembres() {
 
   document.getElementById("score-box").style.display = "flex";
   document.getElementById("section-prefs").style.display = "block";
-  document.getElementById("section-responsable").style.display = "block";
+  document.getElementById("section-submit").style.display = "block";
   calculerScore();
 }
 
@@ -33,7 +33,7 @@ function creerBlocMembre(i) {
   const div = document.createElement("div");
   div.className = "form-section";
   div.innerHTML = `
-    <h3>Membre ${i}${i === 1 ? " (responsable d'équipe)" : ""}</h3>
+    <h3>Membre ${i}${i === 1 ? " — Responsable d'équipe" : ""}</h3>
     <div class="membre-bloc" id="membre-${i}">
       <div class="field-row">
         <div>
@@ -51,6 +51,12 @@ function creerBlocMembre(i) {
           <input type="email" id="m${i}-email" required>
         </div>
         <div>
+          <label>${i === 1 ? "Téléphone *" : "Téléphone"}</label>
+          <input type="tel" id="m${i}-tel" placeholder="+32 …" ${i === 1 ? "required" : ""}>
+        </div>
+      </div>
+      <div class="field-row">
+        <div style="grid-column:1/-1">
           <label>Statut *</label>
           <select id="m${i}-statut" onchange="calculerScore()" required>
             <option value="">-- choisir --</option>
@@ -109,6 +115,7 @@ function collecterDonnees() {
       prenom:  document.getElementById(`m${i}-prenom`).value.trim(),
       nom:     document.getElementById(`m${i}-nom`).value.trim(),
       email:   document.getElementById(`m${i}-email`).value.trim(),
+      tel:     document.getElementById(`m${i}-tel`) ? document.getElementById(`m${i}-tel`).value.trim() : "",
       statut:  document.getElementById(`m${i}-statut`).value,
       scouts:  document.getElementById(`m${i}-scouts`) ? document.getElementById(`m${i}-scouts`).checked : false
     });
@@ -121,6 +128,9 @@ function collecterDonnees() {
     if (s) score += s.pts;
   });
 
+  // Membre 1 = responsable
+  const resp = membres[0];
+
   return {
     type:          "inscription",
     annee:         TREK_CONFIG.annee,
@@ -131,10 +141,10 @@ function collecterDonnees() {
     pref_diff:     document.getElementById("pref-diff").value,
     pref_region:   document.getElementById("pref-region").value,
     remarques:     document.getElementById("pref-remarques").value.trim(),
-    resp_prenom:   document.getElementById("resp-prenom").value.trim(),
-    resp_nom:      document.getElementById("resp-nom").value.trim(),
-    resp_email:    document.getElementById("resp-email").value.trim(),
-    resp_tel:      document.getElementById("resp-tel").value.trim(),
+    resp_prenom:   resp.prenom,
+    resp_nom:      resp.nom,
+    resp_email:    resp.email,
+    resp_tel:      resp.tel,
     timestamp:     new Date().toISOString()
   };
 }
@@ -147,8 +157,7 @@ function validerFormulaire(data) {
     if (!m.prenom || !m.nom || !m.email || !m.statut)
       return `Tous les champs du membre ${i + 1} sont obligatoires.`;
   }
-  if (!data.resp_prenom || !data.resp_nom || !data.resp_email)
-    return "Les coordonnées du responsable sont obligatoires.";
+  if (!data.resp_tel) return "Le numéro de téléphone du responsable (membre 1) est obligatoire.";
   if (!document.getElementById("accept-rgpd").checked)
     return "Veuillez accepter la déclaration de données.";
   return null;
