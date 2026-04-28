@@ -24,8 +24,8 @@ const TREK_CONFIG = {
 
   // Backend Google Apps Script (URL du déploiement)
   // Remplacer par l'URL de votre Apps Script une fois déployé
-  apps_script_inscription: "https://script.google.com/macros/s/VOTRE_ID/exec",
-  apps_script_mailing: "https://script.google.com/macros/s/VOTRE_ID_MAILING/exec",
+  apps_script_inscription: "https://script.google.com/macros/s/1G-JWHOFX44Se87V0MC0QLcbAAsMow6TXC79MkPA_GC01GZhWML-ClOAd/exec",
+  apps_script_mailing: "https://script.google.com/macros/s/1LyC2nXXQUYnaT9pN9ZYQbzZafGNTEZWIzZPvyJB083w/exec",
 
   // Système de priorité (points par membre)
   priorite: {

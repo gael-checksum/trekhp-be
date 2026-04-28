@@ -11,7 +11,7 @@
  */
 
 // ID du Google Spreadsheet (dans l'URL : /spreadsheets/d/VOTRE_ID/edit)
-const SPREADSHEET_ID = "VOTRE_SPREADSHEET_ID";
+const SPREADSHEET_ID = "1LyC2nXXQUYnaT9pN9ZYQbzZafGNTEZWIzZPvyJB083w";
 
 // E-mail de l'organisateur — reçoit une copie de chaque inscription
 const EMAIL_ORGANISATEUR = "trekhp2027@gmail.com";
