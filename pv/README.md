@@ -1,7 +1,7 @@
 # Procès-verbaux — Trek HP 2027
 
-Réunions de l'équipe d'organisation.
+Les PV de l'équipe d'organisation sont stockés sur Google Drive :
 
-| Date | Résumé |
-|------|--------|
-| [27 avril 2026](2026-04-27-reunion-organisation.md) | Réunion de lancement — lieu, date, rôles, agenda |
+> **[Accéder aux PV sur Google Drive](LIEN_A_REMPLACER)**
+
+*(lien à mettre à jour une fois le dossier Drive partagé)*
