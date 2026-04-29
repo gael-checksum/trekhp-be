@@ -313,6 +313,57 @@ nav a:hover { color: var(--blanc); }
 .footer-nav { display: flex; gap: 1.5rem; justify-content: center; margin: 1rem 0; }
 .footer-copy { opacity: 0.5; font-size: 0.78rem; margin-top: 0.8rem; }
 
+/* --- ANNONCE INSCRIPTION --- */
+.section-annonce { background: var(--creme); }
+
+.annonce-accroche {
+  font-family: sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--brun);
+  margin-bottom: 0.3rem;
+}
+.annonce-titre {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--gris-fonce);
+  margin-bottom: 1.8rem;
+  line-height: 1.1;
+}
+
+.section-annonce p { margin-bottom: 1rem; }
+
+.annonce-rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+@media (max-width: 640px) { .annonce-rules { grid-template-columns: 1fr; } }
+
+.rule-block {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  padding: 1.3rem 1.5rem;
+  box-shadow: var(--ombre);
+  border-left: 4px solid var(--brun-clair);
+}
+.rule-block h3 {
+  font-size: 0.95rem;
+  color: var(--brun);
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+}
+.rule-block p, .rule-block li { font-size: 0.92rem; line-height: 1.65; }
+.rule-block ul { padding-left: 1.2rem; margin-top: 0.4rem; }
+.rule-block li { margin-bottom: 0.3rem; }
+.rule-block a { color: var(--vert); }
+
+.rule-block--warning { border-left-color: #e67e22; }
+.rule-block--info    { border-left-color: var(--vert); grid-column: 1 / -1; }
+
 /* --- INSCRIPTION PAGE --- */
 .page-hero {
   background: var(--gris-fonce);
